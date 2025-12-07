@@ -1,0 +1,10 @@
+
+
+{%if form%}
+<form  enctype="multipart/form-data"  action="/posts/add" method="post">
+{% csrf_token %}
+
+{{form.as_p}}
+<button type="submit">create</button>
+</form>
+{%endif%}

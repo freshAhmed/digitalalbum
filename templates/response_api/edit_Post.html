@@ -1,0 +1,23 @@
+<div>
+
+{%if form%}
+<form  enctype="multipart/form-data"  action="/posts/edit/{{post.id}}" method="post">
+{% csrf_token %}
+<div>
+{{form.Title}}
+
+</div>
+<div>
+{{form.description}}
+
+</div>
+
+<div>
+    <!-- <img src="{{post.image.url}}" alt="just_image" width="50" height="50">  -->
+{{form.image}}
+</div>
+<button type="submit">yes</button>
+<button hx-get="/posts/">No</button>
+</form>
+{%endif%}
+</div>
