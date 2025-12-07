@@ -1,0 +1,10 @@
+Django==5.2.7
+django-cors-headers
+django-dotenv
+gunicorn
+psycopg2-binary
+cloudflare
+Pillow
+python-decouple
+django-storages[s3]
+boto3
