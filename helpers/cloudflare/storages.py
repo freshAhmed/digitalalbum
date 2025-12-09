@@ -10,3 +10,4 @@ class StaticFileStorage(CloudflareStorage):
 
 class MediaFileStorage(CloudflareStorage):
     location="media"
+     
