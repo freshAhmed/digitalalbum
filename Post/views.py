@@ -1,5 +1,4 @@
 from django.shortcuts import render,redirect
-from .utilts.Bucket_Storage import Bucket_Storage
 from .models import Post
 from .froms import PostForm
 import logging
@@ -15,7 +14,6 @@ def home_view(request):
 def add_post(request):
 
     form=PostForm((request.POST or None),request.FILES or None)
-    # log.info(form.files)
     if request.method=='POST':
         if form.is_valid():
          data=form.clean_Data()   
@@ -53,7 +51,6 @@ def modify_post(request,id):
             post.image=data['image'] 
         post.save()  
      return redirect('/posts')
-    
     return render(request,'response_api/edit_Post.html',{'post':post,'form':form})
 
 
