@@ -30,9 +30,7 @@ def delete_post(request,id):
     if request.method=='POST':
      post=Post.objects.filter(id=id)[0]
      image=str(post.image)
-
      post.image.delete()
-     log.info(f'{image} has been deleted')
      post.delete()
      return redirect('/posts')
     
@@ -45,8 +43,6 @@ def modify_post(request,id):
     form=PostForm(data)
     if request.method=='POST':
      form =PostForm((request.POST or None),request.FILES or None)
-    #  log.info(post.image)
-    #  log.info(request.FILES.get('image').file)
      if form.is_valid():
         data=form.clean_Data()
         post.Title=data['Title'] if data['Title'] else post.Title
@@ -54,33 +50,16 @@ def modify_post(request,id):
         image=post.image
         if data['image'] is not None:
             image.delete()
-
             post.image=data['image'] 
-        
         post.save()  
-
-     
      return redirect('/posts')
     
     return render(request,'response_api/edit_Post.html',{'post':post,'form':form})
 
 
 
-
-
-
-
-
-
-
-
-
-
 def get_post(request,id):
     context={}
-    # S3=Bucket_Storage()
-    # log.info(S3)
-    
     post=Post.objects.filter(id=id)
     context['post']=post.first()
     return render(request,'response_api/detail_Post.html',context)
