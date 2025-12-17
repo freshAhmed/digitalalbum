@@ -5,8 +5,6 @@ urlpatterns=[
 
  path('remove/<str:id>',delete_post),
  path('edit/<str:id>',modify_post),
- path('<str:id>',get_post),
-
- path('',home_view),
+ path('<str:albumid>/<str:postid>',get_post),
 
 ]
