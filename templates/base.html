@@ -8,10 +8,9 @@
     <title>Document</title>
 </head>
 <body id="main">
- <button hx-get="/posts/add" hx-swap="outerHTML" hx_target="#main">add post</button>
+  <button hx-get="/album/posts/add" hx-swap="outerHTML" hx-target="#main">add post</button>
 
  {% block content %}
-
  {%endblock%}
 </body>
 </html>
