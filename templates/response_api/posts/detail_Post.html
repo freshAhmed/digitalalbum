@@ -1,0 +1,17 @@
+
+
+
+{%if post%}
+<div >
+<div hx-get="/album/posts/{{album.id}}/{{post.id}}" hx-swap="outerHTML" hx-target="#main">
+    <h1>Title:{{post.Title}}</h1>
+<p>desription:{{post.description}}</p>
+<img src="{{post.image.url}}" width="500" height="500" alt="image">
+</div>
+<button hx-get="/album/posts/edit/{{post.id}}" hx-swap="innerHTML" hx-target="#main">edit</button>
+
+<button hx-get="/album/posts/remove/{{post.id}}" hx-swap="innerHTML" hx-target=".removeholder">remove</button>
+<span class="removeholder"></span>
+</div>
+
+{%endif%}

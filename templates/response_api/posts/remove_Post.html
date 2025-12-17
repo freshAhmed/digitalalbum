@@ -1,0 +1,13 @@
+
+<div>
+    <p>are you sure you remove this Post</p>
+    <button hx-Post="/album/posts/remove/{{post.id}}"
+            hx-swap="outerHTML"
+            hx-target="#main"    
+            hx-headers=
+            '{
+              "X-CSRFToken": "{{csrf_token}}" 
+             }'>       
+                yes</button>
+    <button hx-get="/album/{{post.album.id}}" hx-swap="outerHTML" hx-target="#main">no</button>
+</div>
