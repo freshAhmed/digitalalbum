@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+
+
+
+{%block content%}
+{%if request.user.is_authenticated %}
+<p>are sure do want to logout ?</p>
+<button hx-post="/logout/?next=/login/" 
+        hx-swap="outerHTML" 
+        hx-target="#main"  
+        hx-headers='{
+            "X-CSRFToken": "{{csrf_token}}" 
+           }'>yes</button>
+<button hx-get="/posts/" hx-swap="outerHTML" hx-target="#main">no</button>
+{%else%}
+<p>You should loing first</p>
+<button hx-get="/login/" hx-swap="outerHTML" hx-target="#main">login</button>
+<h3>OR</h3>
+<button hx-get="/register/" hx-swap="outerHTML" hx-target="#main">register</button>
+{%endif%}
+
+{%endblock%}

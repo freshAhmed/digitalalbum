@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+{%if not request.user.is_authenticated%}
+
+<div>
+    {%if errors_message%}
+    <p>{{errors_messages}}</p>
+     {%endif%}
+    <form action="/register/" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">register</button>
+    </form>
+</div>
+{%else%}
+<p>First you should logout than create new account</p>
+<button hx-post="/logout/?next=/register/" 
+        hx-swap="outerHTML" 
+        hx-target="#main"
+        hx-headers='{
+            "X-CSRFToken": "{{csrf_token}}" 
+           }'>logout</button>
+{%endif%}
+{%endblock%}
