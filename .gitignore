@@ -6,3 +6,6 @@ db.sqlite3
 */*/__pycache__
 */*/*/__pycache__
 client.py
+
+*.jpg
+*.png
