@@ -55,7 +55,7 @@ def modify_post(request,id):
         image.delete()
         post.image=data['image'] 
       post.save()  
-     return redirect(f'/album/posts/{post.album.id}')
+      return redirect(f'/album/posts/{post.album.id}/{post.id}')
     return render(request,'response_api/posts/edit_Post.html',{'post':post,'form':form})
 
 
@@ -63,5 +63,8 @@ def modify_post(request,id):
 def get_post(request,albumid,postid):
     context={}
     post=Post.objects.filter(Q(id=postid))
+    log.info(postid)
+
     context['post']=post[0]
-    return render(request,'response_api/posts/detail_Post.html',context)
+    context['album']=post[0].album
+    return render(request,'detail_Post.html',context)
