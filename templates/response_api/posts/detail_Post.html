@@ -1,6 +1,5 @@
 
 
-
 {%if post%}
 <div >
 <div hx-get="/album/posts/{{album.id}}/{{post.id}}" hx-swap="outerHTML" hx-target="#main">
@@ -8,10 +7,11 @@
 <p>desription:{{post.description}}</p>
 <img src="{{post.image.url}}" width="500" height="500" alt="image">
 </div>
-<button hx-get="/album/posts/edit/{{post.id}}" hx-swap="innerHTML" hx-target="#main">edit</button>
-
+<button hx-get="/album/posts/edit/{{post.id}}" hx-trigger="click" hx-swap="innerHTML" hx-target="#main">edit</button>
+<a href="/album/posts/edit/{{post.id}}">edit</a>
 <button hx-get="/album/posts/remove/{{post.id}}" hx-swap="innerHTML" hx-target=".removeholder">remove</button>
 <span class="removeholder"></span>
 </div>
 
 {%endif%}
+
