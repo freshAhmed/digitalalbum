@@ -14,7 +14,7 @@ def login_view(request,*args,**kwargs):
      user=authenticate(username=username,password=password)
      if user:
       login(request,user)
-      return redirect('/posts') 
+      return redirect('/album/') 
     return render (request,'accounts/login.html',{'form':form})
     
 
