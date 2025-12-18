@@ -12,13 +12,6 @@
 
  {% block content %}
  {%endblock%}
- <script>
-  console.log("helloworld")
-  document.body.addEventListener('htmx:beforeRequest', function(event) {
-    console.log('HTMX Request Details:', event.detail.requestConfig);
-    console.log('Triggering Element:', event.detail.elt);
-    console.log('Target Element:', event.detail.target);
-  });
 </script>
 </body>
 </html>
