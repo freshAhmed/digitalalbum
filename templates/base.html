@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -12,5 +12,13 @@
 
  {% block content %}
  {%endblock%}
+ <script>
+  console.log("helloworld")
+  document.body.addEventListener('htmx:beforeRequest', function(event) {
+    console.log('HTMX Request Details:', event.detail.requestConfig);
+    console.log('Triggering Element:', event.detail.elt);
+    console.log('Target Element:', event.detail.target);
+  });
+</script>
 </body>
 </html>
