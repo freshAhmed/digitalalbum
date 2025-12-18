@@ -9,7 +9,7 @@ log=logging.getLogger(__name__)
 def create_album(request,):
     return render(request,'base.html',{})
 
-login_required
+@login_required
 def get_album(request,albumid):
     album=albumModel.objects.filter((Q(id=albumid)& Q(author=request.user)))
     post=album[0].get_post(Post)
